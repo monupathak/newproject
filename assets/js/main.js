@@ -115,7 +115,7 @@
   /**
    * Initiate glightbox
    */
-  const glightbox = GLightbox({
+  let glightbox = GLightbox({
     selector: '.glightbox'
   });
 
@@ -134,6 +134,14 @@
         layoutMode: layout,
         filter: filter,
         sortBy: sort
+      });
+      
+      // Re-initialize glightbox after isotope loads
+      if (glightbox) {
+        glightbox.destroy();
+      }
+      glightbox = GLightbox({
+        selector: '.glightbox'
       });
     });
 
