@@ -7,6 +7,21 @@
     const menuItems = document.querySelectorAll('.custom-menu-item');
     const submenuToggles = document.querySelectorAll('.custom-submenu-toggle');
 
+    const scrollLocks = new Set();
+    const lockScroll = (key) => {
+      if (!key) return;
+      scrollLocks.add(key);
+      document.body.style.overflow = 'hidden';
+    };
+    const unlockScroll = (key) => {
+      if (key) {
+        scrollLocks.delete(key);
+      }
+      if (scrollLocks.size === 0) {
+        document.body.style.overflow = '';
+      }
+    };
+
     console.log('Mobile menu elements:', { mobileMenuBtn, mobileMenu, mobileMenuClose });
 
     // Open menu
@@ -16,7 +31,6 @@
         console.log('Mobile menu button clicked');
         if (mobileMenu) {
           mobileMenu.classList.add('active');
-          document.body.style.overflow = 'hidden';
           console.log('Mobile menu opened');
         }
       });
@@ -29,7 +43,6 @@
       mobileMenuClose.addEventListener('click', function(e) {
         e.preventDefault();
         mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
       });
     }
 
@@ -47,7 +60,6 @@
     menuItems.forEach(item => {
       item.addEventListener('click', function() {
         mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
       });
     });
 
@@ -55,7 +67,6 @@
     document.querySelectorAll('.custom-submenu-item').forEach(item => {
       item.addEventListener('click', function() {
         mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
       });
     });
 
@@ -64,7 +75,6 @@
       mobileMenu.addEventListener('click', function(e) {
         if (e.target === mobileMenu) {
           mobileMenu.classList.remove('active');
-          document.body.style.overflow = '';
         }
       });
     }
@@ -81,7 +91,7 @@
       consultationBtn.addEventListener('click', function(e) {
         e.preventDefault();
         consultationModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        lockScroll('consultation-modal');
       });
     }
 
@@ -91,7 +101,7 @@
         e.preventDefault();
         consultationModal.classList.add('active');
         mobileMenu.classList.remove('active');
-        document.body.style.overflow = 'hidden';
+        lockScroll('consultation-modal');
       });
     }
 
@@ -99,7 +109,7 @@
     if (closeModal) {
       closeModal.addEventListener('click', function() {
         consultationModal.classList.remove('active');
-        document.body.style.overflow = '';
+        unlockScroll('consultation-modal');
       });
     }
 
@@ -108,7 +118,7 @@
       consultationModal.addEventListener('click', function(e) {
         if (e.target === consultationModal) {
           consultationModal.classList.remove('active');
-          document.body.style.overflow = '';
+          unlockScroll('consultation-modal');
         }
       });
     }
@@ -169,7 +179,7 @@
             // Close modal after 2 seconds
             setTimeout(function() {
               consultationModal.classList.remove('active');
-              document.body.style.overflow = '';
+              unlockScroll('consultation-modal');
               sentDiv.style.display = 'none';
             }, 2000);
           }, function(error) {
