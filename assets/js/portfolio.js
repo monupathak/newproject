@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.case-card-trigger').forEach(button => {
     button.addEventListener('click', function() {
       const caseId = this.getAttribute('data-case-id');
-      openCasePreview(caseId);
+      openCasePreview(caseId, this);
     });
   });
   
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-function openCasePreview(caseId) {
+function openCasePreview(caseId, triggerButton = null) {
   const caseData = caseStudies[caseId];
   if (!caseData) {
     console.error('Case study not found:', caseId);
@@ -218,9 +218,22 @@ function openCasePreview(caseId) {
   if (deliveryEl) deliveryEl.textContent = caseData.delivery;
   if (impactEl) impactEl.textContent = caseData.impact;
   if (longformEl) longformEl.textContent = caseData.longform;
-  if (imageEl && caseData.image) {
-    imageEl.src = caseData.image;
-    imageEl.alt = caseData.title;
+  if (imageEl) {
+    let previewSrc = caseData.image || '';
+    let previewAlt = caseData.title;
+
+    if (triggerButton) {
+      const cardImage = triggerButton.closest('.case-card')?.querySelector('.case-card-media img');
+      if (cardImage) {
+        previewSrc = cardImage.getAttribute('src') || previewSrc;
+        previewAlt = cardImage.getAttribute('alt') || previewAlt;
+      }
+    }
+
+    if (previewSrc) {
+      imageEl.src = previewSrc;
+      imageEl.alt = previewAlt;
+    }
   }
   
   // Reset show more button
