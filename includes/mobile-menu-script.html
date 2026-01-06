@@ -113,7 +113,12 @@
       });
     }
 
-    // Handle form submission
+    // Initialize EmailJS
+    emailjs.init({
+      publicKey: 'AXDZDscSvLQWGh4kv',
+    });
+
+    // Handle consultation form submission
     if (consultationForm) {
       consultationForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -129,22 +134,109 @@
         sentDiv.style.display = 'none';
         submitBtn.disabled = true;
 
-        // Simulate form submission (replace with actual EmailJS or form handler)
-        setTimeout(function() {
-          loadingDiv.style.display = 'none';
-          sentDiv.style.display = 'block';
-          submitBtn.disabled = false;
-          
-          // Reset form
-          consultationForm.reset();
-          
-          // Close modal after 2 seconds
-          setTimeout(function() {
-            consultationModal.classList.remove('active');
-            document.body.style.overflow = '';
-            sentDiv.style.display = 'none';
-          }, 2000);
-        }, 1500);
+        // Prepare template parameters
+        const templateParams = {
+          from_name: consultationForm.querySelector('input[name="from_name"]').value,
+          from_email: consultationForm.querySelector('input[name="from_email"]').value,
+          phone: consultationForm.querySelector('input[name="phone"]').value || 'Not provided',
+          subject: consultationForm.querySelector('input[name="subject"]').value,
+          message: consultationForm.querySelector('textarea[name="message"]').value,
+          form_type: 'Free Consultation Request'
+        };
+
+        // Send email using EmailJS
+        emailjs.send('service_0y254vt', 'template_oi5kroa', templateParams)
+          .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            
+            // Send auto-reply to user
+            emailjs.send('service_0y254vt', 'template_laduxgr', {
+              to_email: templateParams.from_email,
+              to_name: templateParams.from_name
+            }).then(function(autoReplyResponse) {
+              console.log('Auto-reply sent!', autoReplyResponse.status);
+            }).catch(function(autoReplyError) {
+              console.log('Auto-reply failed (non-critical):', autoReplyError);
+            });
+            
+            loadingDiv.style.display = 'none';
+            sentDiv.style.display = 'block';
+            submitBtn.disabled = false;
+            
+            // Reset form
+            consultationForm.reset();
+            
+            // Close modal after 2 seconds
+            setTimeout(function() {
+              consultationModal.classList.remove('active');
+              document.body.style.overflow = '';
+              sentDiv.style.display = 'none';
+            }, 2000);
+          }, function(error) {
+            console.log('FAILED...', error);
+            loadingDiv.style.display = 'none';
+            errorDiv.textContent = 'Failed to send message. Please try again or email us directly at contact@supplyopt.com';
+            errorDiv.style.display = 'block';
+            submitBtn.disabled = false;
+          });
+      });
+    }
+
+    // Handle contact form submission (if on contact page)
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const loadingDiv = contactForm.querySelector('.loading');
+        const errorDiv = contactForm.querySelector('.error-message');
+        const sentDiv = contactForm.querySelector('.sent-message');
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+        // Show loading
+        loadingDiv.classList.add('d-block');
+        errorDiv.classList.remove('d-block');
+        sentDiv.classList.remove('d-block');
+        submitBtn.disabled = true;
+
+        // Prepare template parameters
+        const templateParams = {
+          from_name: contactForm.querySelector('input[name="from_name"]').value,
+          from_email: contactForm.querySelector('input[name="from_email"]').value,
+          phone: contactForm.querySelector('input[name="phone"]').value || 'Not provided',
+          subject: contactForm.querySelector('input[name="subject"]').value,
+          message: contactForm.querySelector('textarea[name="message"]').value,
+          form_type: 'Contact Form'
+        };
+
+        // Send email using EmailJS
+        emailjs.send('service_0y254vt', 'template_oi5kroa', templateParams)
+          .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            
+            // Send auto-reply to user
+            emailjs.send('service_0y254vt', 'template_laduxgr', {
+              to_email: templateParams.from_email,
+              to_name: templateParams.from_name
+            }).then(function(autoReplyResponse) {
+              console.log('Auto-reply sent!', autoReplyResponse.status);
+            }).catch(function(autoReplyError) {
+              console.log('Auto-reply failed (non-critical):', autoReplyError);
+            });
+            
+            loadingDiv.classList.remove('d-block');
+            sentDiv.classList.add('d-block');
+            submitBtn.disabled = false;
+            
+            // Reset form
+            contactForm.reset();
+          }, function(error) {
+            console.log('FAILED...', error);
+            loadingDiv.classList.remove('d-block');
+            errorDiv.textContent = 'Failed to send message. Please try again or email us directly at contact@supplyopt.com';
+            errorDiv.classList.add('d-block');
+            submitBtn.disabled = false;
+          });
       });
     }
 

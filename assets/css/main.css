@@ -1083,26 +1083,39 @@ h6 {
   color: #ffffff;
 }
 
+.consultation-modal .php-email-form .form-control,
 .consultation-form .form-control {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(246, 189, 82, 0.2);
-  color: #ffffff;
+  color: var(--default-color);
+  background-color: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
   padding: 12px 20px;
-  border-radius: 8px;
+  border-radius: 0px;
   transition: all 0.3s ease;
+  font-size: 14px;
+  box-shadow: none;
 }
 
+.consultation-modal .php-email-form .form-control:focus,
 .consultation-form .form-control:focus {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: #f6bd52;
+  background-color: var(--surface-color);
+  border-color: var(--accent-color);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(246, 189, 82, 0.1);
+  box-shadow: none;
 }
 
+.consultation-modal .php-email-form .form-control::placeholder,
 .consultation-form .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
+.consultation-modal .php-email-form input[type=text],
+.consultation-modal .php-email-form input[type=email],
+.consultation-modal .php-email-form input[type=tel] {
+  height: 48px;
+  padding: 10px 15px;
+}
+
+.consultation-modal .php-email-form button[type="submit"],
 .consultation-form button[type="submit"] {
   background: linear-gradient(135deg, #f6bd52 0%, #e8a838 100%);
   color: #0a1628;
@@ -1116,12 +1129,16 @@ h6 {
   box-shadow: 0 4px 15px rgba(246, 189, 82, 0.3);
 }
 
+.consultation-modal .php-email-form button[type="submit"]:hover,
 .consultation-form button[type="submit"]:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(246, 189, 82, 0.5);
   background: linear-gradient(135deg, #ffc966 0%, #f6bd52 100%);
 }
 
+.consultation-modal .php-email-form .loading,
+.consultation-modal .php-email-form .error-message,
+.consultation-modal .php-email-form .sent-message,
 .consultation-form .loading,
 .consultation-form .error-message,
 .consultation-form .sent-message {
@@ -1132,18 +1149,21 @@ h6 {
   margin-bottom: 15px;
 }
 
+.consultation-modal .php-email-form .loading,
 .consultation-form .loading {
   background: rgba(246, 189, 82, 0.1);
   color: #f6bd52;
   border: 1px solid rgba(246, 189, 82, 0.3);
 }
 
+.consultation-modal .php-email-form .error-message,
 .consultation-form .error-message {
   background: rgba(220, 53, 69, 0.1);
   color: #dc3545;
   border: 1px solid rgba(220, 53, 69, 0.3);
 }
 
+.consultation-modal .php-email-form .sent-message,
 .consultation-form .sent-message {
   background: rgba(40, 167, 69, 0.1);
   color: #28a745;
@@ -1933,6 +1953,7 @@ section,
 .clients .clients-wrap {
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
   border-left: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  justify-content: center;
 }
 
 .clients .client-logo {
