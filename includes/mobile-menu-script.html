@@ -1,0 +1,152 @@
+<script>
+  // Wait a bit for header to be fully rendered in DOM
+  setTimeout(function() {
+    const mobileMenuBtn = document.getElementById('customMobileMenuBtn');
+    const mobileMenu = document.getElementById('customMobileMenu');
+    const mobileMenuClose = document.getElementById('customMobileMenuClose');
+    const menuItems = document.querySelectorAll('.custom-menu-item');
+    const submenuToggles = document.querySelectorAll('.custom-submenu-toggle');
+
+    console.log('Mobile menu elements:', { mobileMenuBtn, mobileMenu, mobileMenuClose });
+
+    // Open menu
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('Mobile menu button clicked');
+        if (mobileMenu) {
+          mobileMenu.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          console.log('Mobile menu opened');
+        }
+      });
+    } else {
+      console.error('Mobile menu button not found!');
+    }
+
+    // Close menu
+    if (mobileMenuClose) {
+      mobileMenuClose.addEventListener('click', function(e) {
+        e.preventDefault();
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    // Toggle submenu
+    submenuToggles.forEach(toggle => {
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const submenu = this.nextElementSibling;
+        submenu.classList.toggle('active');
+        this.classList.toggle('active');
+      });
+    });
+
+    // Close menu when clicking on a main menu item
+    menuItems.forEach(item => {
+      item.addEventListener('click', function() {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close menu when clicking on submenu item
+    document.querySelectorAll('.custom-submenu-item').forEach(item => {
+      item.addEventListener('click', function() {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close menu when clicking outside
+    if (mobileMenu) {
+      mobileMenu.addEventListener('click', function(e) {
+        if (e.target === mobileMenu) {
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+
+    // ========== Consultation Modal Functionality ==========
+    const consultationBtn = document.getElementById('consultationBtn');
+    const consultationBtnMobile = document.getElementById('consultationBtnMobile');
+    const consultationModal = document.getElementById('consultationModal');
+    const closeModal = document.getElementById('closeModal');
+    const consultationForm = document.getElementById('consultation-form');
+
+    // Open modal - Desktop button
+    if (consultationBtn) {
+      consultationBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        consultationModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    // Open modal - Mobile button
+    if (consultationBtnMobile) {
+      consultationBtnMobile.addEventListener('click', function(e) {
+        e.preventDefault();
+        consultationModal.classList.add('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    // Close modal - Close button
+    if (closeModal) {
+      closeModal.addEventListener('click', function() {
+        consultationModal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    // Close modal - Click outside
+    if (consultationModal) {
+      consultationModal.addEventListener('click', function(e) {
+        if (e.target === consultationModal) {
+          consultationModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+
+    // Handle form submission
+    if (consultationForm) {
+      consultationForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const loadingDiv = consultationForm.querySelector('.loading');
+        const errorDiv = consultationForm.querySelector('.error-message');
+        const sentDiv = consultationForm.querySelector('.sent-message');
+        const submitBtn = consultationForm.querySelector('button[type="submit"]');
+
+        // Show loading
+        loadingDiv.style.display = 'block';
+        errorDiv.style.display = 'none';
+        sentDiv.style.display = 'none';
+        submitBtn.disabled = true;
+
+        // Simulate form submission (replace with actual EmailJS or form handler)
+        setTimeout(function() {
+          loadingDiv.style.display = 'none';
+          sentDiv.style.display = 'block';
+          submitBtn.disabled = false;
+          
+          // Reset form
+          consultationForm.reset();
+          
+          // Close modal after 2 seconds
+          setTimeout(function() {
+            consultationModal.classList.remove('active');
+            document.body.style.overflow = '';
+            sentDiv.style.display = 'none';
+          }, 2000);
+        }, 1500);
+      });
+    }
+
+  }, 100); // Small delay to ensure DOM is ready
+</script>

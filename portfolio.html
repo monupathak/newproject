@@ -35,52 +35,8 @@
 
 <body class="portfolio-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/only_logo.png" alt="SupplyOpt Logo">
-        <span class="logo-text"><span class="supply">Supply</span><span class="opt">Opt</span></span>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-          <li><a href="services.html" class="active">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-
-      <!-- Custom Mobile Menu Button -->
-      <button id="customMobileMenuBtn" class="custom-mobile-menu-btn d-xl-none">
-        <i class="bi bi-list"></i>
-      </button>
-
-      <!-- Custom Mobile Menu Overlay -->
-      <div id="customMobileMenu" class="custom-mobile-menu">
-        <button id="customMobileMenuClose" class="custom-mobile-menu-close">
-          <i class="bi bi-x"></i>
-        </button>
-        <div class="custom-mobile-menu-content">
-          <a href="index.html" class="custom-menu-item">Home</a>
-          <a href="about.html" class="custom-menu-item">About</a>
-          <a href="services.html" class="custom-menu-item">Services</a>
-          <a href="portfolio.html" class="custom-menu-item active">Portfolio</a>
-          <a href="contact.html" class="custom-menu-item">Contact</a>
-        </div>
-      </div>
-<!-- 
-      <div class="header-social-links">
-        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-      </div> -->
-
-    </div>
-  </header>
+  <!-- Header Component Placeholder -->
+  <div id="header-placeholder"></div>
 
   <main class="main">
 
@@ -146,7 +102,7 @@
               <span class="case-card-label">Simulation & Ops</span>
             </div>
             <div class="case-card-content">
-              <h3>Manufacturing Plant Optimizing Using DES</h3>
+              <h3>Manufacturing Plant Optimization Using DES</h3>
               <p class="case-card-summary">Discrete event simulation blueprint for a multi-variant electronics plant needing labor, throughput, and scalability clarity.</p>
               <ul class="case-card-highlights">
                 <li>8-station digital twin</li>
@@ -260,6 +216,26 @@
             </div>
           </article>
 
+          <article class="case-card" role="listitem">
+            <div class="case-card-media">
+              <img src="assets/img/ourwork/pcb_manu.jpg" alt="Production operators conducting time studies and analyzing cycle time data">
+              <span class="case-card-label">Simulation & Ops</span>
+            </div>
+            <div class="case-card-content">
+              <h3>Production Capacity Optimization Using Simulation</h3>
+              <p class="case-card-summary">Capacity transparency and cycle-time estimation framework using time studies and discrete event simulation.</p>
+              <ul class="case-card-highlights">
+                <li>Clear max daily output</li>
+                <li>~20% setup time reduction</li>
+                <li>95% cycle time confidence</li>
+              </ul>
+              <button type="button" class="case-card-trigger" data-case-id="capacity-transparency" aria-label="Open Production Capacity & Cycle Time Transparency Using Simulation preview">
+                <span>Open preview</span>
+                <i class="bi bi-arrow-up-right"></i>
+              </button>
+            </div>
+          </article>
+
         </div>
       </div>
     </section><!-- /Case Studies Section -->
@@ -304,47 +280,8 @@
 
   </main>
 
-  <footer id="footer" class="footer dark-background">
-
-    <div class="container footer-top">
-      <div class="row gy-4 align-items-center">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <img src="assets/img/only_logo.png" alt="SupplyOpt Logo">
-            <span class="logo-text"><span class="supply">Supply</span><span class="opt">Opt</span></span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>Decision Science Consulting</p>
-            <p>Optimizing Operations. Improving Decisions.</p>
-            <p><strong>Email:</strong> <span>contact@supplyopt.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href="mailto:contact@supplyopt.com" title="Email us"><i class="bi bi-envelope-fill"></i></a>
-            <a href="https://www.linkedin.com/company/supplyopt/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-
-
-
-      </div>
-    </div>
-
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">SupplyOpt</strong> <span>All Rights Reserved</span></p>
-    </div>
-
-  </footer>
+  <!-- Footer Component Placeholder -->
+  <div id="footer-placeholder"></div>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -365,324 +302,9 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Custom Mobile Menu Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const mobileMenuBtn = document.getElementById('customMobileMenuBtn');
-      const mobileMenu = document.getElementById('customMobileMenu');
-      const mobileMenuClose = document.getElementById('customMobileMenuClose');
-      const menuItems = document.querySelectorAll('.custom-menu-item');
-      const submenuToggles = document.querySelectorAll('.custom-submenu-toggle');
-
-      // Open menu
-      if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
-          mobileMenu.classList.add('active');
-        });
-      }
-
-      // Close menu
-      if (mobileMenuClose) {
-        mobileMenuClose.addEventListener('click', function() {
-          mobileMenu.classList.remove('active');
-        });
-      }
-
-      // Toggle submenu
-      submenuToggles.forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
-          e.stopPropagation();
-          const submenu = this.nextElementSibling;
-          submenu.classList.toggle('active');
-          this.classList.toggle('active');
-        });
-      });
-
-      // Close menu when clicking on a main menu item
-      menuItems.forEach(item => {
-        item.addEventListener('click', function() {
-          mobileMenu.classList.remove('active');
-        });
-      });
-
-      // Close menu when clicking on submenu item
-      document.querySelectorAll('.custom-submenu-item').forEach(item => {
-        item.addEventListener('click', function() {
-          mobileMenu.classList.remove('active');
-        });
-      });
-
-      // Close menu when clicking outside
-      mobileMenu.addEventListener('click', function(e) {
-        if (e.target === mobileMenu) {
-          mobileMenu.classList.remove('active');
-        }
-      });
-    });
-  </script>
-
-  <!-- Case Preview Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const caseStudies = {
-        'strategic-simulation': {
-          hero: 'assets/img/ourwork/thermalpower.jpg',
-          imageAlt: 'Dispatch operators reviewing generator schedules on a market dashboard',
-          category: 'Power Markets',
-          title: 'Price-Aware Thermal Power Dispatch',
-          subtitle: 'Smart dispatch optimization for thermal power plants.',
-          overview: 'A leading thermal power producer relied on heuristics that ignored electricity price volatility, causing missed high-price windows and uneconomic generation during troughs.',
-          delivery: 'We built a two-layer decision system that forecasts short-term electricity prices and feeds a unit commitment plus dispatch optimizer that respects startup classes, minimum up or down time, fuel costs, emissions, and maintenance constraints.',
-          impact: 'The fleet now captures 8-15% more operating profit, trims 10-20% of unnecessary startups, and aligns dispatch decisions with transparent, auditable market logic.',
-          longform: [
-            `Thermal generators often run on autopilot, following static rules that were devised when markets were calmer. Our client, a multi-site producer with roughly 6 GW of installed capacity, scheduled assets with spreadsheet heuristics that could not keep pace with volatile day-ahead prices. Units ramped during low-price periods, lucrative high-price spikes were routinely missed, and controllers constantly explained why profit targets were slipping even as operating risk climbed. Leadership wanted price literacy woven into every dispatch call without overwhelming plant teams with data noise.`,
-            `We started by demystifying the market inputs. Working with the trading desk, we engineered a forecasting layer that ingests historical spot prices, demand curves, weather, and fuel spreads to produce hourly day-ahead and intra-day forecasts. Instead of handing planners a black box, we exposed the drivers behind each price scenario and encoded confidence bands so operators could understand the risk envelope. This forward-looking signal became the anchor for every subsequent decision, replacing the stale averages that previously guided the schedule.`,
-            `With reliable forecasts in place we implemented a profit-maximizing unit commitment and dispatch optimizer. The model evaluates every generator each hour, chooses on or off status, and sets optimal output levels while honoring engineering realities such as minimum run lengths, cooldown requirements, startup classifications, ramp limits, and emissions or fuel budgets. Hot, warm, and cold starts each carry unique cost curves, so the optimizer weighs the trade-offs explicitly rather than defaulting to manual rules. We layered an intuitive cockpit on top so control room staff can test scenarios, override with rationale, and export auditable run sheets.`,
-            `Results arrived quickly. By aligning generation with forecasted price envelopes the business captured an estimated 8-15 percent improvement in operating profit, drastically cutting uneconomic generation during troughs and harvesting more high-price windows. Startup counts fell by 10-20 percent, easing fuel burn and mechanical stress, and the maintenance team finally had predictable plans instead of reacting to whiplash decisions. Perhaps most importantly, dispatch calls are now transparent: each recommendation cites price assumptions, constraint bindings, and margin impacts, laying the groundwork for future digital twin simulations and AI-assisted trading workflows.`
-          ]
-        },
-        'manufacturing-des': {
-          hero: 'assets/img/ourwork/pcb_manu.jpg',
-          imageAlt: 'Simulation analysts reviewing discrete event model outputs inside a factory war room',
-          category: 'Simulation & Ops',
-          title: 'Manufacturing Plant Optimization Using DES',
-          subtitle: 'Labor and throughput optimization in manual manufacturing operations.',
-          overview: 'A mid-sized electronics and mechanical assembly manufacturer running a 24x6 manual line needed clarity on capacity sufficiency, labor plans, and scalability without disrupting production.',
-          delivery: 'We constructed a discrete event simulation that mirrors eight stations, product priorities, shift structures, shared resources, and operator movement, then tested alternative staffing and station assignments.',
-          impact: 'The study maintained throughput, found the optimal 21-operator staffing model, highlighted Step 7 as the bottleneck, and proved readiness for roughly 95% more demand on the new variant.',
-          longform: [
-            `The engagement began with a deep dive into the client\'s manufacturing operations, focusing on a manual, multi-product production line consisting of eight sequential processing steps. Each product type followed the same routing but differed in demand volume and priority, making scheduling and labor allocation non-trivial. Operations ran continuously across three shifts, six days a week, and shared resources such as lifts and conveyors introduced additional dependencies.`,
-            `We developed a discrete event simulation model that accurately mirrored real plant behavior. Product arrivals were modeled with stochastic distributions calibrated to weekly demand, ensuring that variability and realism were preserved. Processing times at every station used statistical distributions derived from observed variability, allowing the system to capture congestion, queue formation, and operator idle time.`,
-            `A key focus area was labor flexibility. While stations were physically fixed, operators could be reassigned to multiple stations. We tested several allocation strategies across shifts to evaluate their impact on throughput, utilization, and waiting times, which revealed configurations that preserved output while materially reducing labor requirements.`,
-            `Material handling constraints were explicitly modeled. As parts increased in weight after certain stages, additional handling requirements and shared lifting equipment became critical system constraints. By incorporating these realities into the simulation, we avoided overly optimistic recommendations and kept every scenario grounded in how the plant actually runs.`,
-            `We ran multiple scenarios, each representing a different staffing and station-assignment strategy. Performance was evaluated using KPIs such as throughput by product type, machine and operator utilization, line efficiency, and queue lengths. Warm-up periods and multiple replications ensured statistical stability, so leadership could trust the comparative insights.`,
-            `Overall, the project transformed subjective operational debates into quantified, evidence-backed decisions. Management can now optimize labor, plan targeted capacity additions, and prepare for growth knowing exactly where bottlenecks sit and how far the system can stretch before new investments are required.`
-          ]
-        },
-        'revenue-media': {
-          hero: 'assets/img/ourwork/revenue.jpg',
-          imageAlt: 'Revenue strategists aligning pricing and media spend on collaborative dashboards',
-          category: 'Revenue Analytics',
-          title: 'Data-Driven Pricing & Media Spend Optimization',
-          subtitle: 'Revenue and media optimization using analytics.',
-          overview: 'A national FMCG retailer poured budget into discounts and advertising without a clear sense of elasticity or channel ROI, leaving revenue on the table while margins eroded.',
-          delivery: 'We fused demand-response pricing analytics with media mix optimization so leadership could set discount depth, cadence, and channel allocations that maximized rupee impact under budget constraints.',
-          impact: 'Promotional revenue improved 5-12%, media ROI climbed 10-20%, and the team now knows the precise guardrails that prevent over-discounting even when competitors cut prices.',
-          longform: [
-            `This engagement brought analytical rigor to the client\'s two biggest growth levers: price promotions and media spend. Historically, discounts were set by intuition, seasonal lore, or reactive moves to competitor price cuts, while marketing budgets were spread thinly across channels without visibility into marginal returns. The result was inconsistent revenue lift, margin leakage, and ballooning media costs.`,
-            `We began with pricing analytics, stitching together historical sales, pricing, promotion, and competitor data. Using demand-response models we quantified how volume changed with each percentage point of discount, captured nonlinear saturation effects, and identified the exact point where incremental price cuts stopped paying off. The model could answer practical questions such as, "What discount do we need to hit a specific quarterly sales target?" or "How many promotional cycles can we run before we dilute profitability?"`,
-            `Cross-price elasticity mattered just as much. We modeled competitor discount events to measure how sensitive the client\'s sales were to rival moves and defined decision rules for when a counter-discount was warranted versus when defending price protected more profit. That transparency turned frantic, ad-hoc reactions into calm, data-backed playbooks.`,
-            `In parallel we evaluated media effectiveness. Each channel - digital, social, print, in-store - exhibited different response curves and saturation points. By estimating ROI per channel and embedding those curves into an optimization model, we reallocated the existing budget toward placements with the highest marginal impact while respecting total spend caps and mandatory commitments.`,
-            `The integrated framework ensured that pricing actions and media spend reinforced one another rather than operating in silos. When leadership dialed up a promotion, the model recommended the supporting media mix; when the marketing team wanted to test a new channel, they could immediately see the discount strategy required to monetize the incremental reach.`,
-            `Within weeks, the company documented a 5-12 percent boost in promotional revenue, tightened discount guardrails that protected margin, and unlocked a 10-20 percent improvement in media ROI without spending a single extra rupee. Most importantly, executives now have a quantitative cockpit that prioritizes revenue impact per rupee, enabling faster responses to competitor moves and smarter planning cycles.`
-          ]
-        },
-        'last-mile-optimization': {
-          hero: 'assets/img/ourwork/lastmile.jpg',
-          imageAlt: 'Dispatch leads coordinating courier fleets on live SLA dashboards',
-          category: 'Last-Mile Ops',
-          title: '30-Minute Delivery Optimization Under Budget Constraints',
-          subtitle: 'Delivery time minimization and fleet optimization.',
-          overview: 'A hyperlocal logistics company with a 30-minute delivery promise needed to balance rapid growth, SLA reliability, and delivery partner costs across dense urban neighborhoods.',
-          delivery: 'We modeled time-dependent demand, decomposed pickup-to-drop timelines, captured queueing effects, and simulated budget-bound fleet sizes to find the minimum staffing plan that keeps the SLA intact.',
-          impact: 'The framework delivers 90-95% of orders within 30 minutes, trims delivery partner cost 10-25% by avoiding overstaffing, and gives clear staffing guidance for every demand window.',
-          longform: [
-            `This engagement zeroed in on last-mile delivery where speed is the customer promise but cost discipline keeps the business afloat. The client had relied on static staffing rules and intuition, which meant they oscillated between missed 30-minute SLAs and expensive idle time as demand whipsawed throughout the day. Leadership needed a fact base to defend budgets while scaling.`,
-            `We started by mining historical order and delivery logs to understand how demand ebbed and flowed across micro time windows and zones. Meal peaks, weekend surges, and festival spikes all behaved differently, so we modeled arrivals stochastically instead of using broad averages. That let us recreate the exact stress periods that used to break the operation.`,
-            `Next we decomposed service time into pickup, travel, and drop-off components, layering in variability from kitchen prep delays, traffic, parking constraints, and customer handling time. Treating each component separately ensured the simulation captured the real-world noise that often pushes deliveries past the SLA threshold.`,
-            `Delivery partners were modeled as a shared, capacity-limited resource pool. Once fleet size dipped below a critical level, queueing effects caused delays to spike nonlinearly. Capturing that tipping point was essential so planners would not underestimate the staffing required to keep promises.`,
-            `We then ran multiple scenarios under a fixed budget, each representing a different active fleet size and time-of-day mix. For every scenario we tracked SLA compliance, tail delays, partner utilization, and idle minutes. Rather than chasing 100 percent on-time delivery, the model highlighted the economically optimal zone where incremental headcount no longer justified the marginal improvement in customer experience.`,
-            `The result is a reusable decision-support tool that gives hourly staffing guardrails, quantifies the trade-off between delivery speed and spend, and equips leadership to plan for promotions, festivals, or unexpected surges without firefighting. Decisions that once relied on gut feel now rest on transparent, simulation-backed evidence.`
-          ]
-        },
-        'meio-inventory': {
-          hero: 'assets/img/ourwork/inventory.jpg',
-          imageAlt: 'Inventory planners reviewing stocking targets across the network',
-          category: 'Inventory Strategy',
-          title: 'Multi-Echelon Inventory Optimization',
-          subtitle: 'Multi-echelon inventory optimization across a textile supply network.',
-          overview: 'A leading textile manufacturer operating plants, warehouses, regional DCs, and storefront inventory points suffered chronic stockouts and lost sales even while upstream buffers ballooned.',
-          delivery: 'We implemented a forecast-driven multi-echelon inventory optimization model that synchronized base stock targets across every node, embedded lead times and variability, and stress-tested scenarios to balance service with working capital.',
-          impact: 'Node-level service climbed toward 95%, lost sales dropped 20-35%, and working capital was redeployed by trimming excess upstream buffers while protecting downstream availability.',
-          longform: [
-            `Chronic stockouts were treated as the cost of doing business for this multi-tier textile network. Plants, a central warehouse, several regional DCs, and hundreds of customer-facing nodes each built plans in isolation using simple days-of-cover heuristics. Seasonal demand whiplash plus regional fashion launches amplified variability the further product moved downstream, so upstream buffers exploded while retail nodes still disappointed customers. Leadership knew the organization was overspending on inventory yet under-delivering on service, but every team defended its spreadsheet logic, making structural change politically risky.`,
-            `We started by reconstructing forward-looking demand truth at the SKU-location granularity. Historical shipments, sell-through feeds, and merchandising calendars were fused to build probabilistic forecasts that explicitly captured seasonality, launch events, and regional correlations. That let planners see how much volatility actually propagated between echelons rather than guessing from aggregated reports. The forecasting layer also exposed which SKUs behaved similarly enough to share safety stock pools and where unique behaviors warranted dedicated buffers, creating a clean signal that could feed any optimization engine without constant manual overrides.`,
-            `With credible demand inputs, we digitized the full network, capturing manufacturing cycle times, transfer lead times, in-transit variability, and replenishment cadences for every echelon. The multi-echelon optimization model determined base stock and reorder points jointly so inventory would be staged exactly where it protected service levels most efficiently. Instead of padding every node, the solver allowed upstream locations to absorb variability once while downstream nodes carried only what was necessary to hit their service targets. Constraint groups encoded working-capital ceilings, storage limits, and loom sequencing realities so recommendations stayed executable.`,
-            `Scenario analysis framed the trade-offs for leadership. We simulated policy responses across aggressive service targets, constrained cash windows, and stress cases such as port congestion or yarn delays. Each scenario quantified incremental inventory investment versus the probability of falling below the 95 percent node-level service ambition, turning abstract debates into tangible curves. We also pressure-tested the policies under biased forecasts to ensure the network would degrade gracefully and identified trigger metrics that would auto-recommend replenishment cadence changes before firefighting was required.`,
-            `Implementation paired analytics with change management. Control tower dashboards surfaced the new targets, explained the drivers behind every adjustment, and logged exceptions so planners trusted the automation. Within the pilot quarter the client saw roughly 20-35 percent fewer lost-sale events, emergency expedites dropped sharply, and node-level service stabilized around 95 percent despite leaner upstream buffers. Finance reported healthier working-capital turns, and supply, demand, and merchandising teams finally operated from one playbook. What began as a reactive network now runs on coordinated, scenario-proof inventory governance.`
-          ]
-        },
-        'pharma-lean': {
-          hero: 'assets/img/ourwork/phrama.jpg',
-          imageAlt: 'Pharmaceutical operators running lean checks on production lines',
-          category: 'Pharma Ops',
-          title: 'Pharma Plant Productivity Optimization',
-          subtitle: 'Pharmaceutical manufacturing productivity and lean transformation.',
-          overview: 'A regulated pharmaceutical facility with multiple production and packing lines faced throughput ceilings, packing congestion, and recurring QC rework even though market demand stayed steady.',
-          delivery: 'We delivered a Lean-manufacturing program covering VSM, SMED-backed changeovers, QC standardization, data capture, and Kaizen coaching so output could rise without compromising compliance.',
-          impact: 'Production output increased roughly 15%, QC loops shrank, packing idle time fell, and operators adopted structured continuous-improvement habits rooted in fresh data visibility.',
-          longform: [
-            `Pharmaceutical shops rarely get the luxury of chasing speed without regulators scrutinizing every move. This client ran multiple production and packing lines that technically met demand but did so with chronic stoppages, uneven staffing, and frequent QC rework. Each new product campaign required heroics to push volume through, and leadership worried that adding more capital would only mask execution issues.`,
-            `We embedded on the floor to map every value stream end to end, using Lean diagnostics to expose Muda, Mura, and Muri hiding inside batching rules, paperwork, and informal workarounds. The maps made waste tangible - packing queues, unbalanced labor across shifts, and manual data transcription that delayed decisions.`,
-            `Packing and changeovers received special attention. By instrumenting lines with simple OEE captures and running SMED workshops, we separated internal versus external setup tasks, slashed redundant verifications, and re-sequenced staging so tooling prepared in parallel. These steps alone freed enough time to lift daily output without adding headcount.`,
-            `Quality teams partnered closely throughout. Instead of layering more inspections, we clarified ownership of critical checks, standardized documentation, and sequenced QC activities to prevent upstream defects. Revised SOP coaching plus targeted supervisor training reduced rework loops while keeping compliance teams comfortable.`,
-            `Sustainability hinged on data and people. We built lightweight digital boards that surfaced downtime, yield, and changeover data at the end of every shift, then trained operators and supervisors to interpret the signals and trigger Kaizen actions. Within a quarter, output rose roughly fifteen percent, line balance improved, and teams could articulate where the next constraint sat rather than guessing.`
-          ]
-        },
-        'retail-warehouse': {
-          hero: 'assets/img/ourwork/warehouse.jpg',
-          imageAlt: 'Warehouse control room monitoring fulfillment throughput',
-          category: 'Retail Ops',
-          title: 'Retail Warehouse Operations Optimization',
-          subtitle: 'Retail warehouse and operations optimization.',
-          overview: 'A fast-growing multi-format retailer was outgrowing its warehouse footprint; congestion, fragmented layouts, and ad-hoc staffing drove up fulfillment cost and slowed service. ',
-          delivery: 'We architected an end-to-end warehouse blueprint covering location selection, layout, storage strategy, manpower plans, IT enablement, and standardized processes across inbound, storage, and dispatch.',
-          impact: 'Effective storage and handling capacity climbed an estimated 20-30%, per-unit handling cost dropped, dispatch speed improved, and the network gained a scalable operating model for future stores.',
-          longform: [
-            `Volume growth outpaced infrastructure for this retailer. The flagship warehouse relied on legacy rack layouts, improvised staging zones, and firefighting labor pools that could no longer keep up with rising SKU counts and omnichannel demand. Executives needed proof that a smarter design - not just more space - could restore service levels while protecting cash.`,
-            `We kicked off with a demand and SKU profile study, segmenting items by velocity, cube, and handling sensitivity. Those insights informed a location strategy plus macro layout options that balanced pallet, case, and each-pick areas without forcing a costly greenfield build.`,
-            `Storage design drills followed. We modeled alternative slotting, dynamic zoning, and vertical utilization tactics to unlock latent capacity. Travel paths were redrawn so high-touch SKUs lived closer to dispatch while reserve areas absorbed bulk inventory without choking aisles.`,
-            `Manpower and systems design were intertwined with the physical plan. We defined labor models by shift, designed role clarity for inbound, put-away, picking, and packing teams, and specified the data capture plus WMS workflows required to orchestrate them. Process standardization cut variability and let supervisors manage by exception instead of chasing paperwork.`,
-            `Finally, we ran scenario tests projecting future volumes to ensure the blueprint scaled without major redesign. The chosen configuration delivered 20-30 percent more effective capacity, trimmed per-unit handling cost, sped up dispatch promise times, and postponed major capex by sweating existing assets smarter. Store operations now trust the warehouse to keep pace with expansion rather than fear the next growth spurt.`
-          ]
-        }
-      };
-
-      const preview = document.getElementById('casePreview');
-      if (!preview) {
-        return;
-      }
-
-      const body = document.body;
-      const previewImage = preview.querySelector('[data-case-image]');
-      const previewCategory = preview.querySelector('[data-case-category]');
-      const previewTitle = preview.querySelector('[data-case-title]');
-      const previewSubtitle = preview.querySelector('[data-case-subtitle]');
-      const previewOverview = preview.querySelector('[data-case-overview]');
-      const previewDelivery = preview.querySelector('[data-case-delivery]');
-      const previewImpact = preview.querySelector('[data-case-impact]');
-      const showMoreBtn = preview.querySelector('[data-show-more]');
-      const longformContainer = preview.querySelector('[data-longform]');
-      const closeBtn = preview.querySelector('.case-preview-close');
-      const cardButtons = document.querySelectorAll('.case-card-trigger');
-
-      const renderLongform = (paragraphs = []) => {
-        if (!Array.isArray(paragraphs)) {
-          return '';
-        }
-        return paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join('');
-      };
-
-      const resetShowMore = () => {
-        if (!showMoreBtn || !longformContainer) {
-          return;
-        }
-        showMoreBtn.setAttribute('data-expanded', 'false');
-        showMoreBtn.setAttribute('aria-expanded', 'false');
-        const textSpan = showMoreBtn.querySelector('span');
-        const icon = showMoreBtn.querySelector('i');
-        if (textSpan) {
-          textSpan.textContent = 'Show more';
-        }
-        if (icon) {
-          icon.classList.remove('bi-caret-up');
-          icon.classList.add('bi-caret-down');
-        }
-        longformContainer.classList.remove('expanded');
-      };
-
-      const openPreview = (caseId) => {
-        const data = caseStudies[caseId];
-        if (!data) {
-          return;
-        }
-
-        previewImage.src = data.hero;
-        previewImage.alt = data.imageAlt || data.title;
-        previewCategory.textContent = data.category;
-        previewTitle.textContent = data.title;
-        previewSubtitle.textContent = data.subtitle;
-        previewOverview.textContent = data.overview;
-        previewDelivery.textContent = data.delivery;
-        previewImpact.textContent = data.impact;
-        if (longformContainer) {
-          longformContainer.innerHTML = renderLongform(data.longform);
-        }
-        resetShowMore();
-
-        preview.classList.add('active');
-        preview.setAttribute('aria-hidden', 'false');
-        body.classList.add('case-preview-open');
-        if (closeBtn) {
-          closeBtn.focus();
-        }
-      };
-
-      const closePreview = () => {
-        preview.classList.remove('active');
-        preview.setAttribute('aria-hidden', 'true');
-        body.classList.remove('case-preview-open');
-      };
-
-      cardButtons.forEach((button) => {
-        button.addEventListener('click', (event) => {
-          event.preventDefault();
-          const caseId = button.dataset.caseId;
-          openPreview(caseId);
-        });
-      });
-
-      if (closeBtn) {
-        closeBtn.addEventListener('click', closePreview);
-      }
-
-      preview.addEventListener('click', (event) => {
-        if (event.target === preview) {
-          closePreview();
-        }
-      });
-
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && preview.classList.contains('active')) {
-          closePreview();
-        }
-      });
-
-      if (showMoreBtn && longformContainer) {
-        showMoreBtn.addEventListener('click', () => {
-          const expanded = showMoreBtn.getAttribute('data-expanded') === 'true';
-          const icon = showMoreBtn.querySelector('i');
-          const textSpan = showMoreBtn.querySelector('span');
-
-          if (expanded) {
-            showMoreBtn.setAttribute('data-expanded', 'false');
-            showMoreBtn.setAttribute('aria-expanded', 'false');
-            longformContainer.classList.remove('expanded');
-            if (textSpan) {
-              textSpan.textContent = 'Show more';
-            }
-            if (icon) {
-              icon.classList.remove('bi-caret-up');
-              icon.classList.add('bi-caret-down');
-            }
-          } else {
-            showMoreBtn.setAttribute('data-expanded', 'true');
-            showMoreBtn.setAttribute('aria-expanded', 'true');
-            longformContainer.classList.add('expanded');
-            if (textSpan) {
-              textSpan.textContent = 'Show less';
-            }
-            if (icon) {
-              icon.classList.remove('bi-caret-down');
-              icon.classList.add('bi-caret-up');
-            }
-          }
-        });
-      }
-    });
-  </script>
-
-  <!-- Dark Mode Only -->
+  <!-- Component Loader -->
+  <script src="assets/js/includes-loader.js"></script>
+<!-- Dark Mode Only -->
   <script>
     // Set website to dark mode only
     document.documentElement.setAttribute('data-theme', 'dark');

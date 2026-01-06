@@ -1,0 +1,92 @@
+<header id="header" class="header d-flex align-items-center sticky-top">
+  <div class="container position-relative d-flex align-items-center">
+
+    <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <img src="assets/img/only_logo.png" alt="SupplyOpt Logo">
+      <span class="logo-text"><span class="supply">Supply</span><span class="opt">Opt</span></span>
+    </a>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html" data-page="index">Home</a></li>
+        <li><a href="about.html" data-page="about">About</a></li>
+        <li><a href="services.html" data-page="services">Services</a></li>
+        <li><a href="portfolio.html" data-page="portfolio">Portfolio</a></li>
+        <li><a href="contact.html" data-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Consultation Button -->
+    <button id="consultationBtn" class="btn-consultation d-none d-lg-block">
+      Book Free Call
+    </button>  
+
+    <!-- Custom Mobile Menu Button -->
+    <button id="customMobileMenuBtn" class="custom-mobile-menu-btn d-xl-none">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <!-- Custom Mobile Menu Overlay -->
+    <div id="customMobileMenu" class="custom-mobile-menu">
+      <button id="customMobileMenuClose" class="custom-mobile-menu-close">
+        <i class="bi bi-x"></i>
+      </button>
+      <div class="custom-mobile-menu-content">
+        <a href="index.html" class="custom-menu-item" data-page="index">Home</a>
+        <a href="about.html" class="custom-menu-item" data-page="about">About</a>
+        <a href="services.html" class="custom-menu-item" data-page="services">Services</a>
+        <a href="portfolio.html" class="custom-menu-item" data-page="portfolio">Portfolio</a>
+        <a href="contact.html" class="custom-menu-item" data-page="contact">Contact</a>
+        <button id="consultationBtnMobile" class="btn-consultation-mobile">
+          Book Free Call
+        </button>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- Consultation Modal -->
+<div id="consultationModal" class="consultation-modal">
+  <div class="consultation-modal-content">
+    <button class="consultation-modal-close" id="closeModal">&times;</button>
+    <div class="consultation-modal-header">
+      <h2>Schedule a Free Consultation</h2>
+      <p>Let's discuss how we can help optimize your operations</p>
+    </div>
+    <div class="consultation-modal-body">
+      <form id="consultation-form" class="consultation-form">
+        <div class="row">
+          <div class="col-md-6 form-group">
+            <input type="text" name="from_name" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="col-md-6 form-group mt-3 mt-md-0">
+            <input type="email" class="form-control" name="from_email" placeholder="Your Email" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 form-group mt-3">
+            <input type="tel" class="form-control" name="phone" placeholder="Your Phone Number (Optional)">
+          </div>
+          <div class="col-md-6 form-group mt-3">
+            <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <textarea class="form-control" name="message" rows="5" placeholder="Tell us about your needs" required></textarea>
+        </div>
+        <div class="my-3">
+          <div class="loading">Sending...</div>
+          <div class="error-message"></div>
+          <div class="sent-message">Your message has been sent successfully. We'll contact you soon!</div>
+        </div>
+        <div class="text-center"><button type="submit">Send Request</button></div>
+      </form>
+    </div>
+  </div>
+</div<a href="contact.html" class="custom-menu-item" data-page="contact">Contact</a>
+      </div>
+    </div>
+
+  </div>
+</header>
