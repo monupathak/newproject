@@ -1791,6 +1791,9 @@ section,
   margin-bottom: 15px;
   display: block;
   transition: all 0.3s ease-in-out;
+  width: 100%;
+  text-align: center;
+  line-height: 1;
 }
 
 .industries .industry-item:hover i {
@@ -1814,6 +1817,8 @@ section,
   .industries .industry-item i {
     font-size: 36px;
     margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
   }
   
   .industries .industry-item h4 {
