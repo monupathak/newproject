@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Waitlist | SupplyOpt AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#cddbf9",
+                    "background": "#131313",
+                    "surface-dim": "#131313",
+                    "on-error": "#690005",
+                    "tertiary": "#f6f7ff",
+                    "primary": "#e1fdff",
+                    "tertiary-fixed-dim": "#b9c7e4",
+                    "on-primary-fixed": "#002022",
+                    "primary-fixed": "#74f5ff",
+                    "on-tertiary": "#233148",
+                    "error-container": "#93000a",
+                    "primary-container": "#00f2ff",
+                    "surface-container-highest": "#353534",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "surface-bright": "#393939",
+                    "secondary-container": "#571bc1",
+                    "on-surface-variant": "#b9cacb",
+                    "on-tertiary-fixed-variant": "#39475f",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "on-primary-fixed-variant": "#004f54",
+                    "surface-tint": "#00dbe7",
+                    "error": "#ffb4ab",
+                    "outline": "#849495",
+                    "surface-container": "#201f1f",
+                    "on-primary-container": "#006a71",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-primary": "#00696f",
+                    "on-secondary": "#3c0091",
+                    "on-primary": "#00363a",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-low": "#1c1b1b",
+                    "on-tertiary-fixed": "#0d1c32",
+                    "inverse-on-surface": "#313030",
+                    "on-surface": "#e5e2e1",
+                    "secondary": "#d0bcff",
+                    "on-tertiary-container": "#526079",
+                    "secondary-fixed": "#e9ddff",
+                    "on-secondary-container": "#c4abff",
+                    "outline-variant": "#3a494b",
+                    "surface-variant": "#353534",
+                    "inverse-surface": "#e5e2e1",
+                    "surface": "#131313",
+                    "surface-container-high": "#2a2a2a",
+                    "on-background": "#e5e2e1",
+                    "on-secondary-fixed": "#23005c",
+                    "tertiary-fixed": "#d6e3ff",
+                    "primary-fixed-dim": "#00dbe7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "base": "4px",
+                    "grid_columns": "12",
+                    "gutter": "24px",
+                    "margin": "32px",
+                    "sm": "16px",
+                    "xs": "8px",
+                    "lg": "40px",
+                    "xl": "64px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "body-base": ["Inter"],
+                    "display-lg": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "mono-data": ["Inter"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "body-base": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "mono-data": ["13px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 20px -5px rgba(0, 242, 255, 0.3);
+        }
+        .ai-path-accent {
+            background: linear-gradient(90deg, transparent, #00f2ff, transparent);
+            height: 1px;
+            width: 100%;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-base selection:bg-primary-container/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 border-b border-white/5 bg-background/80 backdrop-blur-xl">
+<nav class="flex justify-between items-center w-full px-margin py-xs max-w-7xl mx-auto">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-icon="hub">hub</span>
+<span class="font-display-lg text-headline-md tracking-tighter text-primary">SupplyOpt</span>
+</div>
+<!-- Desktop Nav Items -->
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Orchestration</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Intelligence</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Capabilities</a>
+<a class="font-label-caps text-label-caps text-primary font-bold border-b-2 border-primary pb-1" href="#">Waitlist</a>
+</div>
+<button class="font-label-caps text-label-caps bg-primary-container text-on-primary-container px-sm py-xs rounded-full hover:scale-95 transition-transform">
+                Join Waitlist
+            </button>
+</nav>
+</header>
+<main class="min-h-screen pt-xl flex flex-col items-center justify-center relative overflow-hidden">
+<!-- Abstract Background Elements -->
+<div class="absolute top-1/4 -left-1/4 w-96 h-96 bg-secondary-container/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-primary-container/5 rounded-full blur-[120px] pointer-events-none"></div>
+<!-- Hero & Form Section -->
+<section class="w-full max-w-3xl px-margin z-10 flex flex-col items-center text-center">
+<div class="inline-flex items-center gap-xs px-sm py-base rounded-full bg-white/5 border border-white/10 mb-md">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Intelligence Layer Early Access</span>
+</div>
+<h1 class="font-display-lg text-display-lg mb-sm text-on-surface leading-tight">
+                Be the First to Orchestrate <br/> <span class="text-primary italic">with Intelligence.</span>
+</h1>
+<p class="font-body-base text-body-base text-on-surface-variant max-w-xl mb-xl">
+                The neural center of global supply chain is evolving. Secure your position in the next generation of supply chain orchestration and receive exclusive early-stage updates.
+            </p>
+<!-- Conversion Canvas -->
+<div class="glass-panel w-full rounded-xl p-md md:p-lg relative overflow-hidden">
+<div class="ai-path-accent absolute top-0 left-0"></div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-md text-left">
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant block ml-1">Full Name</label>
+<input class="w-full bg-surface-container-low border-b border-white/10 focus:border-primary focus:ring-0 text-on-surface p-sm transition-all duration-300 placeholder:text-on-surface-variant/30" placeholder="Alex Chen" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant block ml-1">Company Email</label>
+<input class="w-full bg-surface-container-low border-b border-white/10 focus:border-primary focus:ring-0 text-on-surface p-sm transition-all duration-300 placeholder:text-on-surface-variant/30" placeholder="alex@supply-chain.ai" type="email"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant block ml-1">Organization</label>
+<input class="w-full bg-surface-container-low border-b border-white/10 focus:border-primary focus:ring-0 text-on-surface p-sm transition-all duration-300 placeholder:text-on-surface-variant/30" placeholder="Nexus Dynamics" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant block ml-1">Role / Function</label>
+<select class="w-full bg-surface-container-low border-b border-white/10 focus:border-primary focus:ring-0 text-on-surface p-sm transition-all duration-300 appearance-none">
+<option>Director of Supply Chain</option>
+<option>Supply Chain Orchestrator</option>
+<option>Operations Strategy</option>
+<option>Technical Founder</option>
+</select>
+</div>
+<div class="md:col-span-2 pt-sm">
+<button class="w-full bg-primary-container text-on-primary-container font-label-caps text-label-caps py-md rounded-lg flex items-center justify-center gap-xs hover:scale-[0.98] transition-transform glow-cyan" type="submit">
+                            Request Early Access
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+<p class="mt-md font-body-sm text-body-sm text-on-surface-variant/60 text-center">
+                    By joining, you agree to receive technical updates from SupplyOpt. 
+                    No noise, just high-fidelity supply chain intelligence.
+                </p>
+</div>
+<!-- Social Proof / Context -->
+<div class="mt-xl grid grid-cols-1 md:grid-cols-3 gap-md w-full">
+<div class="flex flex-col items-center gap-xs">
+<span class="material-symbols-outlined text-primary/60" data-icon="verified">verified</span>
+<h3 class="font-label-caps text-label-caps text-on-surface">Verified Lead</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Priority implementation for enterprise scale.</p>
+</div>
+<div class="flex flex-col items-center gap-xs">
+<span class="material-symbols-outlined text-primary/60" data-icon="monitoring">monitoring</span>
+<h3 class="font-label-caps text-label-caps text-on-surface">Beta Analytics</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Get early views of the intelligence canvas.</p>
+</div>
+<div class="flex flex-col items-center gap-xs">
+<span class="material-symbols-outlined text-primary/60" data-icon="terminal">terminal</span>
+<h3 class="font-label-caps text-label-caps text-on-surface">API Roadmap</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Exclusive preview of the orchestration API.</p>
+</div>
+</div>
+</section>
+<!-- Decorative Image Context -->
+<div class="mt-xl w-full max-w-5xl px-margin opacity-30 grayscale hover:grayscale-0 hover:opacity-50 transition-all duration-700">
+<img alt="High-tech Supply Chain Vision" class="w-full h-48 object-cover rounded-xl border border-white/5" data-alt="A cinematic, high-fidelity wide shot of a futuristic automated supply chain hub at night. The scene is dominated by deep charcoal and navy tones, with sharp linear lighting paths in electric cyan tracing the flow of goods. Sleek, minimalist cargo vessels and automated cranes are visible in the distance under a misty, tech-focused atmosphere. The lighting is low-key with vibrant neon accents, creating a sense of sophisticated AI-driven power." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUVN-MV5pdIiw1yBqRgOaePmu_gUlHaWLsPKnZAqRkSFtcE6NtWKhwV443Vnhx7AjzEpge_48hehZczsSghs_QOCcyoWOhwVlgNQNvUEpFrzkzs9hk547KWr4jxAPWrkAcHpJuV5FlCLNMGuG3ySMRsrXtyxpiD_arXIOS8XkrCkOABjwXH-pUKXeKh3F1m40akFKD9uySEV7sJNJKHgEMsZt3pelUkwsnm2CK3s2ULG-Rfwnl2zTWQncGrBaB_y2i6-ZVfKfCd90"/>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl mt-auto border-t border-white/5 bg-background">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg px-margin max-w-7xl mx-auto">
+<div class="space-y-sm">
+<div class="flex items-center gap-xs opacity-80">
+<span class="material-symbols-outlined text-primary" data-icon="hub">hub</span>
+<span class="font-display-lg text-body-base text-primary">SupplyOpt AI</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    © 2024 SupplyOpt AI. <br/> The Neural Center of Global Supply Chain.
+                </p>
+</div>
+<div class="space-y-sm">
+<h4 class="font-label-caps text-label-caps text-on-surface">Legal</h4>
+<nav class="flex flex-col gap-xs">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+</nav>
+</div>
+<div class="space-y-sm">
+<h4 class="font-label-caps text-label-caps text-on-surface">Resources</h4>
+<nav class="flex flex-col gap-xs">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">API Documentation</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">System Status</a>
+</nav>
+</div>
+<div class="space-y-sm">
+<h4 class="font-label-caps text-label-caps text-on-surface">Network</h4>
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer" data-icon="share">share</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer" data-icon="terminal">terminal</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

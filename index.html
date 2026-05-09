@@ -1,588 +1,968 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>SupplyOpt - Decision Science Consulting</title>
-  <meta name="description" content="Decision Science Solutions for supply chain optimization, strategic simulation, and mathematical optimization.">
-  <meta name="keywords" content="decision science, optimization, supply chain, consulting">
-
-  <!-- Favicons -->
-  <link href="assets/img/tablog.png" rel="icon" type="image/png">
-  <link href="assets/img/tablog.png" rel="shortcut icon" type="image/png">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Courier+Prime:wght@400;700&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Inter:ital,opsz,wght@0,14..32,100;0,14..32,200;0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,100;1,14..32,200;1,14..32,300;1,14..32,400;1,14..32,500;1,14..32,600;1,14..32,700;1,14..32,800;1,14..32,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- Custom CSS for Video Hero -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SupplyOpt | Enterprise Supply Chain Orchestration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
   <style>
-    /* Override carousel styles for video hero */
-    .hero .carousel {
-      width: 100vw;
-      min-height: 100vh;
-      padding: 0;
-      margin: 0;
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
+    :root {
+      --bg: #050607;
+      --panel: rgba(20, 24, 28, 0.4);
+      --text: #f0f4f8;
+      --muted: #8fa1b0;
+      --line: rgba(255, 255, 255, 0.05);
+      --brand: #00f2ff;
+      --brand-glow: rgba(0, 242, 255, 0.3);
+      --accent: #b8a7ff;
+      --error: #ff5449;
+      --radius: 24px;
+      --max: 1200px;
     }
 
-    /* Video styling */
-    .hero video {
-      position: absolute;
-      inset: 0;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Premium Grain & Mesh Background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(0, 242, 255, 0.08), transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(184, 167, 255, 0.06), transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(5, 6, 7, 1), rgba(5, 6, 7, 0.9));
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 4rem));
+      margin: 0 auto;
+    }
+
+    /* Typography Mix */
+    h1,
+    h2,
+    h3,
+    .font-heading {
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .serif-italic {
+      font-family: "Instrument Serif", serif;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: 0;
+      opacity: 0.9;
+    }
+
+    /* Floating Header */
+    header {
+      position: fixed;
+      top: 1.5rem;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .nav-container {
+      background: rgba(10, 12, 14, 0.6);
+      backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.5rem 0.5rem 0.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      pointer-events: auto;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    .brand span {
+      color: var(--brand);
+      font-size: 22px;
+      font-variation-settings: 'FILL' 1;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--brand);
+    }
+
+    .btn {
+      background: var(--brand);
+      color: #000;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 12px var(--brand-glow);
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--brand-glow);
+      filter: brightness(1.1);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 14rem 0 6rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--brand);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--brand);
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 9vw, 5.8rem);
+      font-weight: 700;
+      line-height: 0.95;
+      max-width: 1000px;
+      margin: 0 auto 2.5rem;
+      letter-spacing: -0.04em;
+    }
+
+    h1 span.text-gradient {
+      background: linear-gradient(135deg, var(--brand) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lead {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto 3.5rem;
+      line-height: 1.6;
+      font-weight: 400;
+      animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+    }
+
+    /* Vertical Architecture */
+    .arch-container {
+      margin-top: 8rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+    }
+
+    .arch-header {
+      margin-bottom: 4rem;
+    }
+
+    .arch-header h3 {
+      font-size: 0.8rem;
+      color: var(--brand);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.5rem;
+    }
+
+    .arch-header p {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .arch-layer {
+      background: rgba(20, 24, 28, 0.3);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: default;
+    }
+
+    .arch-layer:hover {
+      background: rgba(20, 24, 28, 0.6);
+      border-color: rgba(0, 242, 255, 0.3);
+      transform: translateX(10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .layer-info {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .layer-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--brand);
+      background: rgba(0, 242, 255, 0.1);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .layer-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    .layer-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .layer-icon {
+      color: var(--brand);
+      opacity: 0.4;
+      font-size: 28px;
+    }
+
+    /* Sections */
+    .section {
+      padding: 10rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 5rem;
+    }
+
+    .section-label {
+      color: var(--brand);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 1.1rem;
+    }
+
+    /* Grid */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 3rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card:hover {
+      border-color: rgba(0, 242, 255, 0.2);
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(0, 242, 255, 0.08);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      color: var(--brand);
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Narrative Stages */
+    .narrative-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .step-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .step-img-wrapper {
+      height: 200px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #000;
+    }
+
+    .step-img-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: 1;
+      opacity: 0.3;
+      filter: grayscale(1);
+      transition: all 0.8s ease;
     }
 
-    .hero .carousel-item {
-      position: absolute;
-      inset: 0;
+    .step-card:hover .step-img-wrapper img {
+      opacity: 0.7;
+      filter: grayscale(0);
+      transform: scale(1.05);
+    }
+
+    /* Alert Section */
+    .alert-section {
+      background: rgba(255, 84, 73, 0.03);
+      border: 1px solid rgba(255, 84, 73, 0.1);
+      border-left: 4px solid var(--error);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 5rem 0;
       display: flex;
-      justify-content: center;
-      align-items: flex-end;
+      gap: 3rem;
+      align-items: center;
     }
 
-    /* Ensure content is above video */
-    .hero .container {
-      z-index: 3;
+    /* Intelligence Block */
+    .xai-block {
+      background: rgba(20, 24, 28, 0.3);
+      border-radius: 32px;
+      padding: 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      border: 1px solid var(--line);
+      backdrop-filter: blur(20px);
     }
 
-    /* Optional: Add a semi-transparent overlay to ensure text readability */
-    .hero .carousel-item::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: color-mix(in srgb, #000000, transparent 40%);
-      z-index: 2;
+    .reasoning-log {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 1.8rem;
+      border-radius: 16px;
+      border-left: 3px solid var(--brand);
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: var(--muted);
     }
 
-    /* Typing Animation */
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-      to {
-        width: 100%;
-      }
-    }
-
-    @keyframes blink {
-      50% {
-        border-color: transparent;
-      }
-    }
-
-    .hero h2 {
-      font-family: "Inter", "Courier New", monospace !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.5px;
+    /* Waitlist */
+    .waitlist-card {
+      background: linear-gradient(135deg, rgba(0, 242, 255, 0.05) 0%, rgba(184, 167, 255, 0.03) 100%);
+      border: 1px solid rgba(0, 242, 255, 0.1);
+      border-radius: 40px;
+      padding: 7rem 4rem;
+      text-align: center;
+      position: relative;
       overflow: hidden;
-      border-right: 3px solid #3edb24b;
-      white-space: nowrap;
-      margin: 0 auto;
-      animation: typing 3.5s steps(50, end), blink 0.75s step-end infinite;
-      display: inline-block;
-      max-width: fit-content;
     }
 
-    /* Mobile responsive for hero heading */
-    @media (max-width: 768px) {
-      .hero h2 {
-        white-space: normal;
-        animation: none;
-        border-right: none;
-        overflow: visible;
-        font-size: 24px;
-        line-height: 1.3;
-        text-align: center;
-        padding: 0 15px;
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
       }
-    }
 
-    /* Scroll Down Arrow Animation */
-    @keyframes slideDown {
-      0% {
+      to {
+        opacity: 1;
         transform: translateY(0);
-        opacity: 1;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(15px);
-        opacity: 0.3;
       }
     }
 
-    .scroll-down-arrow {
-      position: absolute;
-      bottom: 5px;
-      left: 50%;
-      transform: translateX(-50%);
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1000px) {
+
+      .grid-2,
+      .grid-4,
+      .narrative-grid,
+      .xai-block {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 10rem;
+      }
+
+      .arch-layer {
+        margin-left: 0 !important;
+      }
+    }
+
+    /* Footer Styles */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 6rem 0 3rem;
+      background: rgba(5, 6, 7, 0.8);
+      backdrop-filter: blur(24px);
+      margin-top: 5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+      margin-bottom: 5rem;
+    }
+
+    .footer-brand .footer-logo {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 8px;
-      color: #ffffff;
-      z-index: 4;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--text);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
     }
 
-    .scroll-down-arrow p {
-      margin: 0;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 1px;
+    .footer-brand .footer-logo span {
+      color: var(--brand);
+      font-size: 28px;
+    }
+
+    .footer-brand p {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 320px;
+      margin-bottom: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .footer-brand .footer-tagline {
+      font-weight: 600;
+      color: var(--text);
+      opacity: 0.8;
+      margin-bottom: 2rem;
+    }
+
+    .footer-col h5 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      animation: slideDown 2s ease-in-out infinite;
+      letter-spacing: 0.15em;
+      color: var(--text);
+      margin-bottom: 2rem;
+      font-weight: 700;
     }
 
-    .scroll-down-arrow i {
-      font-size: 24px;
-      animation: slideDown 2s ease-in-out infinite;
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul li a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--brand);
+      padding-left: 4px;
+    }
+
+    .copyright {
+      border-top: 1px solid var(--line);
+      padding-top: 2.5rem;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 800px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-brand {
+        grid-column: span 1;
+      }
+
+      .copyright {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+      }
     }
   </style>
-
-  <!-- =======================================================
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  ======================================================== -->
+  </style>
 </head>
 
-<body class="index-page">
+<body>
 
-  <!-- Header Component Placeholder -->
-  <div id="header-placeholder"></div>
+  <header>
+    <div class="nav-container">
+      <a href="#home" class="brand">
+        <span class="material-symbols-outlined">hub</span> SupplyOpt
+      </a>
+      <nav>
+        <a href="#orchestration">Orchestration</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#intelligence">Intelligence</a>
+        <a href="#waitlist">Contact Us</a>
+      </nav>
+      <a href="#waitlist" class="btn">Contact Us</a>
+    </div>
+  </header>
 
-  <main class="main">
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero container">
+      <div class="badge">
+        <div class="dot"></div> Strategic Orchestration V2.4
+      </div>
+      <h1>The Unified Decision Layer for <br /><span class="serif-italic text-gradient">Global Supply Chain.</span></h1>
+      <p class="lead">SupplyOpt connects fragmented execution systems into a high-fidelity orchestration engine,
+        transforming operational complexity into autonomous certainty.</p>
+      <div class="hero-actions">
+        <a href="#waitlist" class="btn">Request Executive Access</a>
+        <a href="#orchestration" class="btn btn-secondary">Platform Architecture</a>
+      </div>
 
-    <!-- Hero Section with Video Instead of Image Carousel -->
-    <section id="hero" class="hero section dark-background">
+      <!-- Vertical Layered Architecture Visual -->
+      <div class="arch-container">
+        <div class="arch-header">
+          <h3>The Architecture</h3>
+          <p>The Four-Layered Autonomous Engine</p>
+        </div>
 
-      <div class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-
-        <!-- Single Video Carousel Item -->
-        <div class="carousel-item active">
-          <!-- Video Element -->
-          <video autoplay muted loop playsinline>
-            <source src="assets/img/hero-carousel/title.mp4" type="video/mp4">
-            <!-- Fallback image if video doesn't load -->
-            <img src="assets/img/hero-carousel/hero-carousel-0.jpg" alt="Hero">
-          </video>
-
-          <!-- Content Overlay -->
-          <div class="container">
-            <h2>The Intelligence Behind Industrial Growth</h2>
-            <p>We enable industries to grow by moving beyond traditional approaches using simulation, optimization, and decision science.</p>
-            <p>Strategies are validated before execution, not after losses.</p>
-            
-            <!-- Scroll Down Arrow -->
-            <div class="scroll-down-arrow">
-              <i class="bi bi-arrow-down"></i>
-              <p>Explore More</p>
+        <!-- Layer 1 -->
+        <div class="arch-layer">
+          <div class="layer-info">
+            <div class="layer-num">01</div>
+            <div>
+              <div class="layer-title">Data Ingestion & Signal Detection</div>
+              <div class="layer-desc">Real-time telemetry from ERP, IoT, and Carrier API streams.</div>
             </div>
           </div>
-        </div><!-- End Carousel Item -->
+          <span class="material-symbols-outlined layer-icon">sensors</span>
+        </div>
+        <!-- Layer 2 -->
+        <div class="arch-layer" style="margin-left: 2rem;">
+          <div class="layer-info">
+            <div class="layer-num">02</div>
+            <div>
+              <div class="layer-title">Impact Analysis & Contextual Reasoning</div>
+              <div class="layer-desc">Advanced reasoning to determine disruption severity and P&L risk.</div>
+            </div>
+          </div>
+          <span class="material-symbols-outlined layer-icon">psychology</span>
+        </div>
+        <!-- Layer 3 -->
+        <div class="arch-layer" style="margin-left: 4rem;">
+          <div class="layer-info">
+            <div class="layer-num">03</div>
+            <div>
+              <div class="layer-title">Autonomous Optimization & Execution Engine</div>
+              <div class="layer-desc">Closing the loop by writing commands back to legacy execution tools.</div>
+            </div>
+          </div>
+          <span class="material-symbols-outlined layer-icon">settings_suggest</span>
+        </div>
+        <!-- Layer 4 -->
+        <div class="arch-layer" style="margin-left: 6rem;">
+          <div class="layer-info">
+            <div class="layer-num">04</div>
+            <div>
+              <div class="layer-title">Executive Synthesis & Decision Transparency</div>
+              <div class="layer-desc">Human-readable audit trails and P&L impact summaries.</div>
+            </div>
+          </div>
+          <span class="material-symbols-outlined layer-icon">description</span>
+        </div>
+      </div>
+    </section>
 
+    <!-- Orchestration Section -->
+    <section id="orchestration" class="section container">
+      <div class="section-header">
+        <span class="section-label">Orchestration</span>
+        <h2>Bridge the Gap Between <span class="serif-italic">Data and Decisions.</span></h2>
+        <p class="section-desc">Legacy systems provide visibility. SupplyOpt provides orchestration. We create a unified
+          intelligence layer that reasons across your entire supply chain network.</p>
       </div>
 
-    </section><!-- /Hero Section -->
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-icon" style="background: rgba(255, 180, 171, 0.1); color: var(--error);">
+            <span class="material-symbols-outlined">history</span>
+          </div>
+          <span
+            style="font-size: 0.8rem; color: var(--error); font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em;">Fragmented
+            Legacy</span>
+          <h3>Disconnected Silos</h3>
+          <p>Critical data is often trapped in disparate platforms. SupplyOpt ingests these streams to eliminate manual
+            intervention for routine exceptions.</p>
+        </div>
+        <div class="card" style="border-color: rgba(95, 208, 255, 0.3);">
+          <div class="card-icon">
+            <span class="material-symbols-outlined">model_training</span>
+          </div>
+          <span
+            style="font-size: 0.8rem; color: var(--brand); font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em;">Unified
+            Future</span>
+          <h3>Autonomous Resolution</h3>
+          <p>Predictive reasoning identifies bottlenecks before they impact your P&L, resolving the vast majority of
+            disruptions without human touch.</p>
+        </div>
+      </div>
 
-    <!-- About Section -->
-    <section id="about" class="about section">
+      <!-- Alert Section -->
+      <div class="alert-section">
+        <div class="alert-content">
+          <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.8rem;">
+            <span class="material-symbols-outlined" style="color: var(--error);">warning</span>
+            <span
+              style="font-size: 0.75rem; font-weight: 800; color: var(--error); text-transform: uppercase; letter-spacing: 0.1em;">Operational
+              Alert • Live Intelligence</span>
+          </div>
+          <h3>Port Strike Detected: Dynamic Reroute In Progress</h3>
+          <p>SupplyOpt has identified unscheduled industrial action at Port of Rotterdam. The engine has already
+            proposed an immediate diversion of high-priority cargo to Antwerp to maintain SLA compliance.</p>
+        </div>
+        <a href="#waitlist" class="btn" style="background: var(--error); color: #000; white-space: nowrap;">Review
+          Divergence</a>
+      </div>
+    </section>
 
-      <div class="container">
+    <!-- Capabilities Section -->
+    <section id="capabilities" class="section container">
+      <div class="section-header">
+        <span class="section-label">Operations</span>
+        <h2>Engineering Stability in Volatility.</h2>
+        <p class="section-desc">Our platform translates fragmented signals into precise operational instructions through
+          four integrated stages.</p>
+      </div>
 
-        <div class="row position-relative">
+      <div class="narrative-grid">
+        <div class="step-card">
+          <div class="step-img-wrapper">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbKo5gxemiexk3Sr9vEZXhprUjVZaEyhfQy2rmool1IUEsEOu_Nc5oIpHI-StZXvGMJw_M5OQHCwV9OE8aUi-gqpPN1iWRUfkW30xBefqp-OdOZMSq1BtSRP3OUVX5nn1H3Py_vlE2MTxJuyeqrBx_nHkmf2V9DtT0kojem4_KM000ClmiI59oyWs4OYWzUsgXfmQgxJn5cp76B068PXP2DpFHAv52C-HRehc5MP0tc7bpgiYZCArVntpuup536y-XUIE4NYuZ8rA"
+              alt="Connect">
+          </div>
+          <h4 style="font-size: 1.2rem; font-weight: 700;">1. Data Ingestion</h4>
+          <p style="font-size: 1rem; color: var(--muted);">Direct ingestion of live data from ERPs, IoT sensors, and
+            global carrier APIs into a unified ledger.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-img-wrapper">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGblyo86h6JJQbPGPPNmOhU_snXNvAb2RNhHbTr2M8oA89oim4kt09XCkPYUnJ-mayuh247sLQTWjtV9GPAFa-PQnM_S8NsT18hL2LR6LX_5LJZHENLEBEKuKFp8JXM7ULET3B_B85InfkWYk6JWaJNssVCBaVNB1UgnAzKLv8ifb6fwgrE4W1oHX5FGvbuOiNUkP3Fr--CAB3n6gChtbRaqKs0Wcr3TzabpKpLRxkrnUwXXDCAO-THARln3mtj3g719LHCq_fZ4g"
+              alt="Analyze">
+          </div>
+          <h4 style="font-size: 1.2rem; font-weight: 700;">2. Impact Analysis</h4>
+          <p style="font-size: 1rem; color: var(--muted);">Autonomous detection of anomalies, demand spikes, and
+            logistical friction points across your network.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-img-wrapper">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPP41dAJvqWMIxgqVEajQ_xQoRPE8L9A25el2SuzXPZNPBgQd5jlpj5dwIL6nMxJcVBXMlIXy9GllY2nF12b6D279uOpIJA7aT6jkrRrRyLRzmxpqJyCkB3_F9UpvAL8lIHFeDKXwIYgBlD8uehmOg4tjncneYG0gu9FYMgoQk_evgcHH3bChpfdGjlaGtpDnEWAu3uEDqOV2RJIBBIxDe3mVVCuFtaglNIs92wrlOs1OaTBBGns03P28FR-Uwyw64M_dWfgGNFgA"
+              alt="Orchestrate">
+          </div>
+          <h4 style="font-size: 1.2rem; font-weight: 700;">3. Optimization Engine</h4>
+          <p style="font-size: 1rem; color: var(--muted);">Generation of optimal pathing decisions, balancing total
+            landed cost against carbon footprint and speed.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-img-wrapper">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnITUsKhoXK7Sk9W6oSLOe1JKefrxceSNThPxu3y95l3XzkQw02PoVHmsHbMS86t1Lc5iHZrZ6i2No9Iixq3Cmp_vPcoyAf2QLHahy85JJBoHohaBfyW7G6AeXG_2eUKht7hNERZ00SIsR7PODWE2ceUke93oEDhqhIZ5DS-nXajZ1agLY6PstDvPxapXdL-Zs-nc4OaxZe7OmQnGF4Byt1nB15zmOTT-72BigQbgTR3NKKfWzc9eCDHxM5p-drYOwcIZerErWPQE"
+              alt="Act">
+          </div>
+          <h4 style="font-size: 1.2rem; font-weight: 700;">4. Execution Core</h4>
+          <p style="font-size: 1rem; color: var(--muted);">Autonomous execution of commands back to source systems,
+            updating manifests and inventory levels.</p>
+        </div>
+      </div>
+    </section>
 
-          <div class="col-lg-7 about-img" data-aos="zoom-out" data-aos-delay="200"><img src="assets/img/about.jpg"></div>
+    <!-- Intelligence Section -->
+    <section id="intelligence" class="section container">
+      <div class="xai-block">
+        <div>
+          <span class="section-label">Trust & Transparency</span>
+          <h2>Clear Reasoning. No Black Boxes.</h2>
+          <p class="section-desc">SupplyOpt provides a detailed "Decision Path" for every autonomous action. We build
+            trust through explainability, not just results.</p>
 
-          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-            <h2 class="inner-title">Who We Are</h2>
-            <div class="our-story">
-              <h4>Founded in 2024</h4>
-              <h3>Our Mission</h3>
-              <p>Founded in 2024 by IIT Bombay alumni, <strong>SupplyOpt</strong> is a decision science consulting firm that blends deep academic rigor with real-world execution. Rooted in the <strong>Industrial Engineering and Operations Research</strong> discipline at IIT Bombay, our team brings strong expertise in <strong>operations research, manufacturing systems, supply chain management, and data science</strong>, backed by years of hands-on industry experience across diverse sectors. We help organizations turn complex operational challenges into clear, data-driven decisions that drive measurable impact.</p>
-              <p>We specialize in solving real industrial problems by combining rigorous analytical thinking with practical execution. Our background lets us understand operational challenges across <span class="text-highlight">manufacturing plants, warehouses, and supply networks</span>, then translate them into structured, <span class="text-highlight">data-driven decision systems</span> that teams can reliably use.</p>
-              <p>Our mission is simple: to help organizations perform better through data-backed decision-making. We work with clients to:</p>
-              <ul>
-                <li><i class="bi bi-check-circle"></i> <span>Replace guesswork with reliable, analytically-driven decisions</span></li>
-                <li><i class="bi bi-check-circle"></i> <span>Improve operational performance using modern optimization, simulation, and forecasting techniques</span></li>
-                <li><i class="bi bi-check-circle"></i> <span>Reduce dependency on manual planning, reactive firefighting, and inefficient processes</span></li>
-              </ul>
-              <p>Our solutions are designed to deliver clear and measurable impact across cost, time, service levels, and profitability. We work closely with manufacturing, warehousing, and transportation organizations to build scalable decision systems that improve efficiency, resilience, and long-term operational performance.</p>
+          <div class="reasoning-log">
+            <div style="display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; color: var(--brand);">
+              <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
+              <span
+                style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Orchestration
+                Reasoning</span>
+            </div>
+            "Rerouting Shipment #8821 via Port of Busan. Predicted 72-hour delay at Shanghai due to congestion data.
+            Projected Savings: 18.5% Total Landed Cost."
+          </div>
+        </div>
+
+        <div class="canvas-mock" style="background: rgba(255, 255, 255, 0.01);">
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); padding-bottom: 1.2rem; margin-bottom: 2.5rem;">
+            <span
+              style="font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 800;">Decision
+              Canvas v2.4</span>
+            <div style="display: flex; gap: 8px;">
+              <div class="dot"></div>
             </div>
           </div>
 
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div
+              style="background: rgba(255, 255, 255, 0.03); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--line);">
+              <div
+                style="font-size: 0.7rem; color: var(--brand); font-weight: 800; margin-bottom: 0.5rem; text-transform: uppercase;">
+                Optimal Path Selected</div>
+              <div style="font-size: 1rem; color: var(--text);">Route: SHA -> ANT (via BUS)</div>
+            </div>
+            <div
+              style="background: rgba(255, 255, 255, 0.02); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--line); opacity: 0.5;">
+              <div
+                style="font-size: 0.7rem; color: var(--muted); font-weight: 800; margin-bottom: 0.5rem; text-transform: uppercase;">
+                Alternative Path (Rejected)</div>
+              <div style="font-size: 1rem; color: var(--muted);">Route: SHA -> ROT (+4.2 Day Delay)</div>
+            </div>
+          </div>
         </div>
-
       </div>
+    </section>
 
-    </section><!-- /About Section -->
+    <!-- Waitlist Section -->
+    <section id="waitlist" class="section container">
+      <div class="waitlist-card">
+        <span class="section-label">Strategic Partnership</span>
+        <h2>Future-Proof Your <span class="serif-italic">Supply Chain.</span></h2>
+        <p class="section-desc" style="margin: 0 auto; max-width: 600px;">Join global supply chain leaders transitioning
+          to
+          autonomous orchestration. Secure your place in the next evolution of supply chain management.</p>
 
-    <!-- Industries Component Placeholder -->
-    <div id="industries-placeholder"></div>
-
-    <!-- Services Section -->
-    <section id="services" class="services section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>What We Do</h2>
-        <p>Comprehensive decision science services to optimize your operations</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item item-cyan position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
-                </svg>
-                <i class="bi bi-activity"></i>
-              </div>
-              <a href="services.html#solutions" class="stretched-link">
-                <h3>Strategic Simulation</h3>
-              </a>
-              <p>We build realistic simulations of plants and warehouses to test decisions before implementation. This helps validate strategies, reduce risk, and avoid costly trial-and-error on the shop floor.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item item-orange position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426"></path>
-                </svg>
-                <i class="bi bi-broadcast"></i>
-              </div>
-              <a href="services.html#solutions" class="stretched-link">
-                <h3>Mathematical Optimization</h3>
-              </a>
-              <p>Our optimization experts design solutions tailored to your business goals - such as reducing cost, improving schedules, and better resource utilization - across production, warehousing, and transportation.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item item-teal position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,541.5067337569781C382.14930387511276,545.0595476570109,479.8736841581634,548.3450877840088,526.4010558755058,480.5488172755941C571.5218469581645,414.80211281144784,517.5187510058486,332.0715597781072,496.52539010469104,255.14436215662573C477.37192572678356,184.95920475031193,473.57363656557914,105.61284051026155,413.0603344069578,65.22779650032875C343.27470386102294,18.654635553484475,251.2091493199835,5.337323636656869,175.0934190732945,40.62881213300186C97.87086631185822,76.43348514350839,51.98124368387456,156.15599469081315,36.44837278890362,239.84606092416172C21.716077023791087,319.22268207091537,43.775223500013084,401.1760424656574,96.891909868211,461.97329694683043C147.22146801428983,519.5804099606455,223.5754009179313,538.201503339737,300,541.5067337569781"></path>
-                </svg>
-                <i class="bi bi-easel"></i>
-              </div>
-              <a href="services.html#solutions" class="stretched-link">
-                <h3>AI / ML Solutions</h3>
-              </a>
-              <p>We use AI and machine learning to build intelligent models for predictive maintenance, anomaly detection, and operational intelligence, helping prevent breakdowns and improve reliability.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item item-red position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813"></path>
-                </svg>
-                <i class="bi bi-bounding-box-circles"></i>
-              </div>
-              <a href="services.html#solutions" class="stretched-link">
-                <h3>Demand Forecasting</h3>
-              </a>
-              <p>We provide accurate and robust demand forecasts so manufacturers can plan production confidently and respond effectively to future demand changes.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item item-indigo position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,532.3542879108572C369.38199826031484,532.3153073249985,429.10787420159085,491.63046689027357,474.5244479745417,439.17860296908856C522.8885846962883,383.3225815378663,569.1668002868075,314.3205725914397,550.7432151929288,242.7694973846089C532.6665558377875,172.5657663291529,456.2379748765914,142.6223662098291,390.3689995646985,112.34683881706744C326.66090330228417,83.06452184765237,258.84405631176094,53.51806209861945,193.32584062364296,78.48882559362697C121.61183558270385,105.82097193414197,62.805066853699245,167.19869350419734,48.57481801355237,242.6138429142374C34.843463184063346,315.3850353017275,76.69343916112496,383.4422959591041,125.22947124332185,439.3748458443577C170.7312796277747,491.8107796887764,230.57421082200815,532.3932930995766,300,532.3542879108572"></path>
-                </svg>
-                <i class="bi bi-calendar4-week icon"></i>
-              </div>
-              <a href="services.html#solutions" class="stretched-link">
-                <h3>Inventory Optimization</h3>
-              </a>
-              <p>Our models determine reliable inventory levels for each product, helping you avoid stock-outs, reduce excess inventory, and never lose upcoming orders.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item item-pink position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,566.797414625762C385.7384707136149,576.1784315230908,478.7894351017131,552.8928747891023,531.9192734346935,484.94944893311C584.6109503024035,417.5663521118492,582.489472248146,322.67544863468447,553.9536738515405,242.03673114598146C529.1557734026468,171.96086150256528,465.24506316201064,127.66468636344209,395.9583748389544,100.7403814666027C334.2173773831606,76.7482773500951,269.4350130405921,84.62216499799875,207.1952322260088,107.2889140133804C132.92018162631612,134.33871894543012,41.79353780512637,160.00259165414826,22.644507872594943,236.69541883565114C3.319112789854554,314.0945973066697,72.72355303640163,379.243833228382,124.04198916343866,440.3218312028393C172.9286146004772,498.5055451809895,224.45579914871206,558.5317968840102,300,566.797414625762"></path>
-                </svg>
-                <i class="bi bi-chat-square-text"></i>
-              </div>
-              <a href="services.html#solutions" class="stretched-link">
-                <h3>Production Scheduling</h3>
-              </a>
-              <p>We design optimized production schedules that help you get maximum output from existing resources, reduce delays, and improve on-time delivery.</p>
-            </div>
-          </div><!-- End Service Item -->
-
+        <div style="margin-top: 4rem;">
+          <a href="mailto:contact@supplyopt.com" class="btn" style="padding: 1.2rem 3rem; font-size: 1rem;">Request
+            Executive Access</a>
         </div>
-
+        <p style="margin-top: 3rem; font-size: 0.9rem; color: var(--muted);">Limited alpha availability for enterprise
+          partners in Q3 2024.</p>
       </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Our Products</h2>
-        <p>Comprehensive product suite designed to transform and optimize your operations</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-optimization">Optimization</li>
-            <li data-filter=".filter-planning">Planning</li>
-            <li data-filter=".filter-aiml">AI/ML</li>
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-optimization">
-              <a href="portfolio.html" style="text-decoration: none; color: inherit;">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Manufacturing Optimization</h4>
-                <p>Maximize production efficiency and eliminate bottlenecks in manufacturing processes.</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Optimization 1" data-gallery="portfolio-gallery-optimization" class="glightbox preview-link" onclick="event.stopPropagation();"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio.html#client-stories" title="More Details" class="details-link" onclick="event.stopPropagation();"><i class="bi bi-link-45deg"></i></a>
-              </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-planning">
-              <a href="portfolio.html" style="text-decoration: none; color: inherit;">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Production Planning and Optimization</h4>
-                <p>Optimize production schedules to maximize output and minimize resource waste.</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Planning 1" data-gallery="portfolio-gallery-planning" class="glightbox preview-link" onclick="event.stopPropagation();"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio.html#client-stories" title="More Details" class="details-link" onclick="event.stopPropagation();"><i class="bi bi-link-45deg"></i></a>
-              </div>
-              </a>
-            </div><!-- End Portfolio Item -->            
-
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-aiml">
-              <a href="portfolio.html" style="text-decoration: none; color: inherit;">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>AI-Driven Digital Twin & Simulation Platform</h4>
-                <p>Create virtual replicas to test strategies and optimize operations before implementation.</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="AI/ML 1" data-gallery="portfolio-gallery-aiml" class="glightbox preview-link" onclick="event.stopPropagation();"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio.html#client-stories" title="More Details" class="details-link" onclick="event.stopPropagation();"><i class="bi bi-link-45deg"></i></a>
-              </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-optimization">
-              <a href="portfolio.html" style="text-decoration: none; color: inherit;">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Inventory Optimization</h4>
-                <p>Maintain optimal stock levels to reduce costs while ensuring product availability.</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="Optimization 2" data-gallery="portfolio-gallery-optimization" class="glightbox preview-link" onclick="event.stopPropagation();"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio.html#client-stories" title="More Details" class="details-link" onclick="event.stopPropagation();"><i class="bi bi-link-45deg"></i></a>
-              </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-planning">
-              <a href="portfolio.html" style="text-decoration: none; color: inherit;">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Warehouse Planning and Optimization</h4>
-                <p>Enhance warehouse layout, picking efficiency, and maximize space utilization.</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Planning 2" data-gallery="portfolio-gallery-planning" class="glightbox preview-link" onclick="event.stopPropagation();"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio.html#client-stories" title="More Details" class="details-link" onclick="event.stopPropagation();"><i class="bi bi-link-45deg"></i></a>
-              </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-aiml">
-              <a href="portfolio.html" style="text-decoration: none; color: inherit;">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Demand Forecast</h4>
-                <p>Accurate demand forecasting to plan production and inventory with confidence.</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="AI/ML 2" data-gallery="portfolio-gallery-aiml" class="glightbox preview-link" onclick="event.stopPropagation();"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio.html#client-stories" title="More Details" class="details-link" onclick="event.stopPropagation();"><i class="bi bi-link-45deg"></i></a>
-              </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-optimization">
-              <a href="portfolio.html" style="text-decoration: none; color: inherit;">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Logistics & Transportation Optimization</h4>
-                <p>Reduce transportation costs and improve delivery efficiency across networks.</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="Optimization 3" data-gallery="portfolio-gallery-optimization" class="glightbox preview-link" onclick="event.stopPropagation();"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio.html#client-stories" title="More Details" class="details-link" onclick="event.stopPropagation();"><i class="bi bi-link-45deg"></i></a>
-              </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-planning">
-              <a href="portfolio.html" style="text-decoration: none; color: inherit;">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Digital Transformation & Automation</h4>
-                <p>Modernize operations with intelligent automation and digital solutions for growth.</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Planning 3" data-gallery="portfolio-gallery-planning" class="glightbox preview-link" onclick="event.stopPropagation();"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio.html#client-stories" title="More Details" class="details-link" onclick="event.stopPropagation();"><i class="bi bi-link-45deg"></i></a>
-              </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-aiml">
-              <a href="portfolio.html" style="text-decoration: none; color: inherit;">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Decision Support System</h4>
-                <p>Empower leaders with data-driven insights to evaluate scenarios and make informed decisions.</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="AI/ML 3" data-gallery="portfolio-gallery-aiml" class="glightbox preview-link" onclick="event.stopPropagation();"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio.html#client-stories" title="More Details" class="details-link" onclick="event.stopPropagation();"><i class="bi bi-link-45deg"></i></a>
-              </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Clients Section -->
-    <section id="clients" class="clients section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Trusted by Industry Leaders</h2>
-        <p>SupplyOpt partners with forward-thinking companies across manufacturing, logistics, and retail</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row g-0 clients-wrap justify-content-center">
-
-          <div class="col-xl-4 col-lg-6 col-md-8 client-logo">
-            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <!-- <div class="col-xl-3 col-md-4 client-logo">
-            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-          </div>End Client Item -->
-
-          <!-- <div class="col-xl-3 col-md-4 client-logo">
-            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-          </div>End Client Item -->
-
-          <!-- <div class="col-xl-3 col-md-4 client-logo">
-            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
-          </div>End Client Item -->
-
-          <!-- <div class="col-xl-3 col-md-4 client-logo">
-            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-          </div>End Client Item -->
-
-          <!-- <div class="col-xl-3 col-md-4 client-logo">
-            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-          </div>End Client Item -->
-
-          <!-- <div class="col-xl-3 col-md-4 client-logo">
-            <img src="assets/img/clients/client-7.png" class="img-fluid" alt="">
-          </div>End Client Item -->
-
-          <!-- <div class="col-xl-3 col-md-4 client-logo">
-            <img src="assets/img/clients/client-8.png" class="img-fluid" alt="">
-          </div>End Client Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Clients Section -->
-
+    </section>
   </main>
 
-  <!-- Footer Component Placeholder -->
-  <div id="footer-placeholder"></div>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-  <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-  <!-- Component Loader -->
-  <script src="assets/js/includes-loader.js"></script>
-
-  <!-- Dark Mode Only -->
-  <script>
-    // Set website to dark mode only
-    document.documentElement.setAttribute('data-theme', 'dark');
-  </script>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="footer-logo">
+            <span class="material-symbols-outlined">hub</span> SupplyOpt
+          </a>
+          <p><strong>Email:</strong> <a href="mailto:contact@supplyopt.com"
+              style="color: var(--brand); text-decoration: none;">contact@supplyopt.com</a></p>
+        </div>
+        <div class="footer-col">
+          <h5>Platform</h5>
+          <ul>
+            <li><a href="#orchestration">Orchestration</a></li>
+            <li><a href="#capabilities">Capabilities</a></li>
+            <li><a href="#intelligence">Intelligence</a></li>
+            <li><a href="#waitlist">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2024 SupplyOpt AI. All rights reserved.</p>
+        <div style="display: flex; gap: 2rem;">
+          <a href="#" style="color: var(--muted);"><span class="material-symbols-outlined"
+              style="font-size: 20px;">share</span></a>
+          <a href="https://www.linkedin.com/company/supplyopt/" target="_blank" style="color: var(--muted);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 
