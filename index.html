@@ -798,13 +798,25 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     @keyframes slideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Success Message */
@@ -1085,14 +1097,16 @@
           autonomous orchestration. Secure your place in the next evolution of supply chain management.</p>
 
         <div style="margin-top: 4rem;">
-          <a href="javascript:void(0)" class="btn waitlist-trigger" style="padding: 1.2rem 3rem; font-size: 1rem;">Request
+          <a href="javascript:void(0)" class="btn waitlist-trigger"
+            style="padding: 1.2rem 3rem; font-size: 1rem;">Request
             Executive Access</a>
         </div>
         <p style="margin-top: 3rem; font-size: 0.9rem; color: var(--muted);">Limited alpha availability for enterprise
           partners in Q3 2024.</p>
       </div>
     </section>
-  </main>  <footer>
+  </main>
+  <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
@@ -1132,13 +1146,13 @@
   <div class="modal-overlay" id="waitlistModal">
     <div class="modal-content">
       <button class="modal-close closeModal">&times;</button>
-      
+
       <div class="form-content">
         <div class="modal-header">
           <div class="badge" style="margin-bottom: 1.5rem;">
             <div class="dot"></div> Intelligence Layer Early Access
           </div>
-          <h2>Join the <br/> <span class="serif-italic text-gradient">Waitlist.</span></h2>
+          <h2>Join the <br /> <span class="serif-italic text-gradient">Waitlist.</span></h2>
           <p>Secure your position in the next generation of supply chain orchestration.</p>
         </div>
 
@@ -1166,7 +1180,7 @@
               </select>
             </div>
           </div>
-          
+
           <button type="submit" class="form-submit submitBtn">
             Request Early Access
           </button>
@@ -1189,13 +1203,13 @@
   <div class="modal-overlay" id="contactModal">
     <div class="modal-content">
       <button class="modal-close closeModal">&times;</button>
-      
+
       <div class="form-content">
         <div class="modal-header">
           <div class="badge" style="margin-bottom: 1.5rem;">
             <div class="dot" style="background: var(--accent);"></div> Direct Inquiry
           </div>
-          <h2>Contact <br/> <span class="serif-italic text-gradient">SupplyOpt.</span></h2>
+          <h2>Contact <br /> <span class="serif-italic text-gradient">SupplyOpt.</span></h2>
           <p>Have questions about our platform? We're here to help.</p>
         </div>
 
@@ -1216,9 +1230,10 @@
           </div>
           <div class="form-group">
             <label class="form-label">Message</label>
-            <textarea name="message" class="form-input" rows="4" placeholder="Tell us more about your needs..." required></textarea>
+            <textarea name="message" class="form-input" rows="4" placeholder="Tell us more about your needs..."
+              required></textarea>
           </div>
-          
+
           <button type="submit" class="form-submit submitBtn">
             Send Message
           </button>
@@ -1236,7 +1251,7 @@
 
   <script>
     // Initialize EmailJS
-    (function() {
+    (function () {
       emailjs.init("AXDZDscSvLQWGh4kv");
     })();
 
@@ -1272,7 +1287,7 @@
       });
 
       if (form) {
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
           e.preventDefault();
           submitBtn.disabled = true;
           const originalText = submitBtn.textContent;
@@ -1319,5 +1334,5 @@
   </script>
 </body>
 
+
 </html>
-ml>
